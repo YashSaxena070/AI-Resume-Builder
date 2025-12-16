@@ -1,20 +1,82 @@
 package com.yash.AI_Resume.controller;
 
+import com.yash.AI_Resume.document.Resume;
+import com.yash.AI_Resume.dto.CreateResumeRequest;
 import com.yash.AI_Resume.service.ResumeService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.vote.AuthenticatedVoter;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.util.List;
+
+import static com.yash.AI_Resume.utils.AppConstants.*;
+
 @RestController
-@RequestMapping("/api/resume")
-@CrossOrigin(origins = "*")
+@RequestMapping(RESUME)
+@RequiredArgsConstructor
+@Slf4j
 public class ResumeController {
 
-    @Autowired
-    private ResumeService resumeService;
+    private final ResumeService resumeService;
 
-    @PostMapping("/upload")
-    public String uploadResume(@RequestParam("file") MultipartFile file, @RequestParam("jdText") String jdText) {
-        return resumeService.extractText(file);
+    @PostMapping
+    public ResponseEntity<?> createResume(@Valid @RequestBody CreateResumeRequest request,
+                                          Authentication authentication){
+        //Step 1: Call the service method
+        Resume newResume = resumeService.createResume(request, authentication.getPrincipal());
+
+        //Step 2: return response
+        return ResponseEntity.status(HttpStatus.CREATED).body(newResume);
     }
+
+    @GetMapping
+    public ResponseEntity<?> getUserResume(Authentication authentication){
+        //Step 1: Call the service method
+        List<Resume> resumes = resumeService.getUserResumes(authentication.getPrincipal());
+
+        //Step 2: return the response
+        return ResponseEntity.ok(resumes);
+    }
+
+    @GetMapping(ID)
+    public ResponseEntity<?> getResumeById(@PathVariable String id, Authentication authentication){
+        //Step 1: Call the service method
+        Resume existingResume = resumeService.getResumeById(id, authentication.getPrincipal());
+
+        //Step 2: return the response;
+        return ResponseEntity.ok(existingResume);
+    }
+
+    @PutMapping(ID)
+    public ResponseEntity<?> updateResume(@PathVariable String id,
+                                          @RequestBody Resume updatedData,
+                                          Authentication authentication) {
+        //1. Call the service method
+        Resume updatedResume = resumeService.updateResume(id, updatedData, authentication.getPrincipal());
+
+        //2. return the response
+        return ResponseEntity.ok(updatedResume);
+    }
+
+    @PutMapping(UPLOAD_IMAGES)
+    public ResponseEntity<?> uploadResumeImages(@PathVariable String id,
+                                                @RequestPart(value= "thumbnail", required=true) MultipartFile thumbnail,
+                                                @RequestPart(value = "profileImage", required = false) MultipartFile profileImage,
+                                                HttpServletRequest request){
+        return null;
+    }
+
+    @DeleteMapping(ID)
+    public ResponseEntity<?> deleteResume(@PathVariable String id){
+        return null;
+    }
+
+
 }

@@ -8,7 +8,6 @@ import com.yash.AI_Resume.service.FileUploadService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -77,14 +76,16 @@ public class AuthController {
         return ResponseEntity.ok().body(Map.of("success",true,"message","Verification resent successfully"));
     }
 
-//    @GetMapping(PROFILE)
-//    public ResponseEntity<?> getProfile(Authentication authentication) {
-//        //1. Get the principal object
-//        Object principalObject = authentication.getPrincipal();
-//
-//        //2. CAll the service method
-//
-//        //3. return the response
-//    }
+    @GetMapping(PROFILE)
+    public ResponseEntity<?> getProfile(Authentication authentication) {
+        //1. Get the principal object
+        Object principalObject = authentication.getPrincipal();
+
+        //2. CAll the service method
+        AuthResponse currentProfile = authService.getProfile(principalObject);
+
+        //3. return the response
+        return ResponseEntity.ok(currentProfile);
+    }
 
 }

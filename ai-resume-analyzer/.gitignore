@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Sensitive Configuration Files ###
+src/main/resources/application.yaml
+*.env
+.env
+.env.local
+.env.*.local
+output.txt
