@@ -117,4 +117,13 @@ public class ResumeService {
 
     }
 
+    public void deleteResume(String resumeId, Object principal) {
+        //Step 1: get the current profile
+        AuthResponse response = authService.getProfile(principal);
+
+        //Step 2: call the repo finder method
+        Resume existingResume = resumeRepository.findByUserIdAndId(response.getId(), resumeId)
+                .orElseThrow(() -> new RuntimeException("Resume not found"));
+        resumeRepository.delete(existingResume);
+    }
 }
