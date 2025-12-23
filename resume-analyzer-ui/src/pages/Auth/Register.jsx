@@ -51,8 +51,13 @@ const Register = () => {
     }
 
     const { confirmPassword, ...payload } = formData;
-    await dispatch(registerUser(payload));
-    navigate("/verify-email", { state: { email: formData.email } });
+    try {
+      await dispatch(registerUser(payload)).unwrap();
+      navigate("/verify-email", { state: { email: formData.email } });
+    } catch (err) {
+      // Error is handled by Redux state and displayed in the UI
+      console.error("Registration failed:", err);
+    }
   };
 
   return (

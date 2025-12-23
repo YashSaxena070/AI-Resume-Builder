@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { selectIsAuthenticated } from './redux/userSlice';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import VerifyEmail from './pages/Auth/VerifyEmail';
 import OAuthCallback from './pages/Auth/OAuthCallback';
 import Dashboard from './pages/Home/Dashboard';
 import Home from './pages/Home/Home';
@@ -45,60 +46,68 @@ function App() {
     <>
       <ScrollToTop />
       <Routes>
-      <Route
-        path="/login"
-        element={
-          <PublicRoute>
-            <Login />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/register"
-        element={
-          <PublicRoute>
-            <Register />
-          </PublicRoute>
-        }
-      />
-      <Route
-        path="/oauth/callback"
-        element={
-          <PublicRoute>
-            <OAuthCallback />
-          </PublicRoute>
-        }
-      />
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
         <Route
-          path="/dashboard"
+          path="/login"
           element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
           }
         />
         <Route
-          path="/analyze"
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/oauth/callback"
+          element={
+            <PublicRoute>
+              <OAuthCallback />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/verify-email"
+          element={
+            <PublicRoute>
+              <VerifyEmail />
+            </PublicRoute>
+          }
+        />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/analyze"
+            element={
+              <ProtectedRoute>
+                <ResumeAnalyzer />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/about" element={<About />} />
+        </Route>
+        <Route
+          path="/resume/:id"
           element={
             <ProtectedRoute>
-              <ResumeAnalyzer />
+              <EditResume />
             </ProtectedRoute>
           }
         />
-        <Route path="/templates" element={<Templates />} />
-        <Route path="/pricing" element={<Pricing />} />
-        <Route path="/about" element={<About />} />
-      </Route>
-      <Route
-        path="/resume/:id"
-        element={
-          <ProtectedRoute>
-            <EditResume />
-          </ProtectedRoute>
-        }
-      />
       </Routes>
     </>
   );
