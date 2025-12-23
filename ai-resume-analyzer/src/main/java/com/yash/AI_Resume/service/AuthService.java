@@ -53,7 +53,9 @@ public class AuthService {
 
         User savedUser = userRespository.save(newUser);
 
-        sendVerificationEmail(savedUser);
+        // sendVerificationEmail(savedUser);
+        savedUser.setEmailVerified(true);
+        userRespository.save(savedUser);
 
         return toResponse(savedUser);
     }
