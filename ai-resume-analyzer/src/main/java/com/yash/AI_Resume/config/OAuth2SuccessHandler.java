@@ -15,6 +15,8 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
 @Component
 @RequiredArgsConstructor
@@ -29,16 +31,23 @@ public class OAuth2SuccessHandler implements AuthenticationSuccessHandler {
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response,
             Authentication authentication) throws IOException, ServletException {
 
-        OAuth2AuthenticationToken token = (OAuth2AuthenticationToken) authentication;
-        OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
+        if (!(authentication instanceof OAuth2AuthenticationToken oauthToken)) {
+            response.sendRedirect(frontendUrl + "/login?error=oauth");
+            return;
+        }
 
-        String registerationId = token.getAuthorizedClientRegistrationId();
+        OAuth2User oAuth2User = oauthToken.getPrincipal();
+
+        String registerationId = oauthToken.getAuthorizedClientRegistrationId();
 
         ResponseEntity<AuthResponse> loginResponse = loginService.login(oAuth2User, registerationId);
 
         String jwtToken = loginResponse.getBody().getToken();
 
-        response.sendRedirect(frontendUrl + "/oauth/callback?token=" + jwtToken);
+        // encoded token
+        String encodedToken = URLEncoder.encode(jwtToken, StandardCharsets.UTF_8);
+
+        response.sendRedirect(frontendUrl + "/oauth/callback?token=" + encodedToken);
 
     }
 }

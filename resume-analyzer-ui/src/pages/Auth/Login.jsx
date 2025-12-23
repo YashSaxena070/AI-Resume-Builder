@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { motion } from "framer-motion";
 import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../utils/apiPaths";
 import {
   loginUser,
   selectIsLoading,
@@ -147,7 +148,7 @@ const Login = () => {
               {/* Google */}
               <button 
                 type="button"
-                onClick={() => window.location.href = 'http://localhost:8080/oauth2/authorization/google'}
+                onClick={() => window.location.href = `${BASE_URL}/oauth2/authorization/google`}
                 className="flex items-center justify-center py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
               >
                 <svg className="h-6 w-6" viewBox="0 0 24 24">
@@ -161,7 +162,7 @@ const Login = () => {
               {/* GitHub */}
               <button 
                 type="button"
-                onClick={() => window.location.href = 'http://localhost:8080/oauth2/authorization/github'}
+                onClick={() => window.location.href = `${BASE_URL}/oauth2/authorization/github`}
                 className="flex items-center justify-center py-3 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors"
               >
                 <svg className="h-6 w-6 text-slate-900" fill="currentColor" viewBox="0 0 24 24">

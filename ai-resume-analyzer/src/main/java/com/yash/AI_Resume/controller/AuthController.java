@@ -26,7 +26,6 @@ import static com.yash.AI_Resume.utils.AppConstants.*;
 @RequestMapping(AUTH_CONTROLLER)
 public class AuthController {
 
-
     private final AuthService authService;
     private final FileUploadService fileUploadService;
 
@@ -40,10 +39,10 @@ public class AuthController {
     }
 
     @GetMapping(VERIFY_EMAIL)
-    public ResponseEntity<?> verifyEmail(@RequestParam String token) {
+    public ResponseEntity<AuthResponse> verifyEmail(@RequestParam String token) {
         log.info("Inside AuthController - verifyEmail(): {}", token);
-        authService.verifyEmail(token);
-        return ResponseEntity.status(HttpStatus.OK).body(Map.of("message", "Email verified successfully"));
+        AuthResponse response = authService.verifyEmail(token);
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping(UPLOAD_PROFILE)
@@ -61,30 +60,30 @@ public class AuthController {
 
     @PostMapping(RESEND_VERIFICATION)
     public ResponseEntity<?> resendVerification(@RequestBody Map<String, String> body) {
-        //1. Get the email from request
+        // 1. Get the email from request
         String email = body.get("email");
 
-        //2. Add the validation
-        if( Objects.isNull(email)){
+        // 2. Add the validation
+        if (Objects.isNull(email)) {
             return ResponseEntity.badRequest().body(Map.of("message", "Email is required"));
         }
 
-        //3. Call the service method to resend verification link
+        // 3. Call the service method to resend verification link
         authService.resendVerification(email);
 
-        //4. Return response
-        return ResponseEntity.ok().body(Map.of("success",true,"message","Verification resent successfully"));
+        // 4. Return response
+        return ResponseEntity.ok().body(Map.of("success", true, "message", "Verification resent successfully"));
     }
 
     @GetMapping(PROFILE)
     public ResponseEntity<?> getProfile(Authentication authentication) {
-        //1. Get the principal object
+        // 1. Get the principal object
         Object principalObject = authentication.getPrincipal();
 
-        //2. CAll the service method
+        // 2. CAll the service method
         AuthResponse currentProfile = authService.getProfile(principalObject);
 
-        //3. return the response
+        // 3. return the response
         return ResponseEntity.ok(currentProfile);
     }
 

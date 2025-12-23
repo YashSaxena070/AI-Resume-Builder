@@ -39,6 +39,9 @@ public class AuthService {
     @Value("${app.base.url:http://localhost:8080}")
     private String appBaseUrl;
 
+    @Value("${app.frontend.url:http://localhost:5173}")
+    private String frontendUrl;
+
     public AuthResponse register(RegisterRequest request) {
         log.info("Inside AuthService: register() {}", request);
 
@@ -58,7 +61,7 @@ public class AuthService {
     private void sendVerificationEmail(User user) {
         log.info("Inside AuthService - sendVerificationEmail(): {}", user);
         try {
-            String link = appBaseUrl + "/api/auth/verify-email?token=" + user.getVerificationToken();
+            String link = frontendUrl + "/verify-email?token=" + user.getVerificationToken();
             String html = "<div style='font-family:sans-serif'>" +
                     "<h2>Verify your email</h2>" +
                     "<p>Hi " + user.getName() + ", please confirm your email to activate your account.</p>" +
@@ -104,7 +107,7 @@ public class AuthService {
                 .build();
     }
 
-    public void verifyEmail(String Token) {
+    public AuthResponse verifyEmail(String Token) {
         log.info("Inside AuthService: verifyEmail(): {}", Token);
         User user = userRespository.findByVerificationToken(Token)
                 .orElseThrow(() -> new RuntimeException("Invalid or Expired verification token"));
@@ -115,7 +118,13 @@ public class AuthService {
         user.setEmailVerified(true);
         user.setVerificationToken(null);
         user.setVerificationExpires(null);
-        userRespository.save(user);
+        User savedUser = userRespository.save(user);
+
+        // Generate token for auto-login
+        String token = jwtUtil.generateToken(savedUser.getId());
+        AuthResponse response = toResponse(savedUser);
+        response.setToken(token);
+        return response;
     }
 
     public AuthResponse login(LoginRequest request) {

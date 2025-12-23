@@ -10,15 +10,17 @@ const OAuthCallback = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const token = searchParams.get('token');
+    const token =
+      searchParams.get('token') ||
+      searchParams.get('accessToken');
 
     if (token) {
       // Store token in localStorage
       localStorage.setItem('token', token);
-      
+
       // Update Redux state
       dispatch(setToken(token));
-      
+
       // Fetch user profile
       dispatch(getProfile())
         .unwrap()
