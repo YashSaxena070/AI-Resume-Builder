@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8a228fa-476b-43f1-a3d3-7423ed61f8b7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +134,7 @@
       <workItem from="1766409264254" duration="1365000" />
       <workItem from="1766411289251" duration="2267000" />
       <workItem from="1766413583629" duration="941000" />
-      <workItem from="1766476394266" duration="607000" />
+      <workItem from="1766476394266" duration="1357000" />
     </task>
     <servers />
   </component>

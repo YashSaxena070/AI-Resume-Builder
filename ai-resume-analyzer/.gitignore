@@ -35,6 +35,7 @@ build/
 ### Sensitive Configuration Files ###
 *.env
 application-env.properties
+ai-resume-analyzer/application-env.properties
 .env.local
 .env.*.local
 output.txt
