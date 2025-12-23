@@ -18,6 +18,7 @@ export const API_PATHS = {
     UPDATE: (id) => `/api/resumes/${id}`,
     DELETE: (id) => `/api/resumes/${id}`,
     UPLOAD_IMAGES: (id) => `/api/resumes/${id}/upload-images`,
+    ANALYZE: "/api/resumes/analyze",
   },
   PAYMENT: {
     CREATE_ORDER: "/api/payment/create-order",

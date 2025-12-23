@@ -1,7 +1,7 @@
 package com.yash.AI_Resume.document;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,7 +10,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -62,7 +61,7 @@ public class Resume {
     @AllArgsConstructor
     @NoArgsConstructor
     @Builder
-    private static class Template{
+    private static class Template {
         private String theme;
         private List<String> colorPalette;
     }

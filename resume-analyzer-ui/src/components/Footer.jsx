@@ -24,27 +24,27 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Company</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a  className="hover:text-white cursor-pointer transition-colors">
                   About
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a  className="hover:text-white cursor-pointer transition-colors">
                   Careers
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a  className="hover:text-white cursor-pointer transition-colors">
                   Press
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a  className="hover:text-white cursor-pointer transition-colors">
                   Blog
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Partners
                 </a>
               </li>
@@ -56,27 +56,27 @@ const Footer = () => {
             <h3 className="text-white font-semibold mb-4">Support</h3>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Help Center
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Safety Information
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Cancellation Options
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Contact Us
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-white transition-colors">
+                <a className="hover:text-white cursor-pointer transition-colors">
                   Accessibility
                 </a>
               </li>
@@ -96,7 +96,7 @@ const Footer = () => {
                 placeholder="Your email"
                 className="flex-1 bg-white text-slate-900 px-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <button className="bg-black text-white p-2 rounded-lg hover:bg-slate-800 transition-colors">
+              <button className="bg-black text-white p-2 rounded-lg hover:bg-slate-800 cursor-pointer transition-colors">
                 <ArrowRight size={20} />
               </button>
             </div>

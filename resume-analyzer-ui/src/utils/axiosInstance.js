@@ -3,9 +3,6 @@ import { BASE_URL } from './apiPaths';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
-  headers: {
-    'Content-Type': 'application/json',
-  },
 });
 
 // Request interceptor to add auth token
@@ -14,6 +11,16 @@ axiosInstance.interceptors.request.use(
     const token = localStorage.getItem('token');
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    // ✅ AUTO Content-Type handling
+    if (config.data instanceof FormData) {
+      // ❌ Do NOT set Content-Type
+      // Axios will automatically set multipart/form-data with boundary
+      delete config.headers["Content-Type"];
+    } else {
+      // JSON request
+      config.headers["Content-Type"] = "application/json";
     }
     return config;
   },

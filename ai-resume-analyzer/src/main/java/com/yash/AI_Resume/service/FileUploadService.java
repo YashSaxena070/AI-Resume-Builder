@@ -24,25 +24,27 @@ public class FileUploadService {
     private final AuthService authService;
     private final ResumeRepository resumeRepository;
 
+    @SuppressWarnings("unchecked")
     public Map<String, String> uploadSingleImage(MultipartFile file) throws IOException {
-        Map<String, Object> imageUploadResult = cloudinary.uploader().upload(file.getBytes(), ObjectUtils.asMap("resource_type","image"));
+        Map<String, Object> imageUploadResult = cloudinary.uploader().upload(file.getBytes(),
+                ObjectUtils.asMap("resource_type", "image"));
         log.info("Inside FileUploadService - uploadSingleImage() {}", imageUploadResult.get("secure_url").toString());
-        return Map.of("imageUrl",imageUploadResult.get("secure_url").toString());
+        return Map.of("imageUrl", imageUploadResult.get("secure_url").toString());
 
     }
 
     public Map<String, String> uploadResumeImages(String resumeId,
-                                                  Object principal,
-                                                  MultipartFile thumbnail,
-                                                  MultipartFile profileImage) throws IOException {
-        //1. get the current profile
+            Object principal,
+            MultipartFile thumbnail,
+            MultipartFile profileImage) throws IOException {
+        // 1. get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //Step 2: get the existing resume
+        // Step 2: get the existing resume
         Resume existingResume = resumeRepository.findByUserIdAndId(response.getId(), resumeId)
                 .orElseThrow(() -> new RuntimeException("Resume not found"));
 
-        //Step 3: upload the resume images and set the resume
+        // Step 3: upload the resume images and set the resume
         Map<String, String> returnValue = new HashMap<>();
         Map<String, String> uploadResult;
 
@@ -61,11 +63,11 @@ public class FileUploadService {
             returnValue.put("profilePreviewUrl", uploadResult.get("imageUrl"));
         }
 
-        //Step 4: update the details into database
+        // Step 4: update the details into database
         resumeRepository.save(existingResume);
         returnValue.put("message", "Images uploaded successfully");
 
-        //Step 5: return the result
+        // Step 5: return the result
         return returnValue;
 
     }

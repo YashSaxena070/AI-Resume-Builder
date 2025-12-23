@@ -34,25 +34,11 @@ const Title = ({ text, color }) => {
 const TemplateOne = ({ resumeData, colorPalette, containerWidth }) => {
   const themeColors = colorPalette?.length > 0 ? colorPalette : DEFAULT_THEME;
   const resumeRef = useRef(null);
-  const [baseWidth, setBaseWidth] = useState(800);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const actualBaseWidth = resumeRef.current.offsetWidth;
-    setBaseWidth(actualBaseWidth || 800);
-    setScale(containerWidth / (actualBaseWidth || 800));
-  }, [containerWidth]);
 
   return (
     <div
       ref={resumeRef}
-      className="p-3 bg-white"
-      style={{
-        transform: containerWidth > 0 ? `scale(${scale})` : "none",
-        transformOrigin: "top left",
-        width: containerWidth > 0 ? `${baseWidth}px` : "auto", // Keep the original size so scaling works correctly
-        height: "auto",
-      }}
+      className="p-3 bg-white min-h-[1000px]"
     >
       <div className="grid grid-cols-12 gap-8">
         <div

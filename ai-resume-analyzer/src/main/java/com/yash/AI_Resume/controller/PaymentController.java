@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.ResponseErrorHandler;
 
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,6 @@ import static com.yash.AI_Resume.utils.AppConstants.*;
 public class PaymentController {
 
     private final PaymentService paymentService;
-    private final ResponseErrorHandler responseErrorHandler;
 
     @PostMapping(CREATE_ORDER)
     public ResponseEntity<?> createOrder(@RequestBody Map<String, String> request, Authentication authentication)

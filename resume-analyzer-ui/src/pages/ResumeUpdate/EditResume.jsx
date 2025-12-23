@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchResumeById, updateResume, updateResumeLocal } from "../../redux/resumeSlice";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
+import { generatePDFBlob } from "../../utils/pdfGenerator";
 import { ArrowLeft, LayoutTemplate, Palette, Eye, Save, Download, Share2 } from "lucide-react";
 import toast from "react-hot-toast";
 import EmailPopup from "../../components/Extra/EmailPopup";
@@ -43,6 +44,7 @@ const EditResume = () => {
   const [previewMode, setPreviewMode] = useState(false);
   const [autoSaveTimer, setAutoSaveTimer] = useState(null);
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
+  const [showDownloadPopup, setShowDownloadPopup] = useState(false);
   const [pdfBlob, setPdfBlob] = useState(null);
 
   const resumePreviewRef = useRef(null);
@@ -218,124 +220,87 @@ const EditResume = () => {
     handleResumeUpdate(updatedData);
   };
 
-  const captureContent = async () => {
-    const element = resumePreviewRef.current;
-    if (!element) return null;
-
-    // Check if element is visible
-    const isVisible = element.offsetWidth > 0 && element.offsetHeight > 0;
-
-    if (isVisible) {
-      return await html2canvas(element, {
-        scale: 2,
-        useCORS: true,
-      });
-    } else {
-      // Clone and capture if hidden
-      const clone = element.cloneNode(true);
-      
-      // Create a wrapper to ensure isolation and styling
-      const wrapper = document.createElement('div');
-      wrapper.style.position = 'fixed';
-      wrapper.style.left = '0'; // Keep on screen
-      wrapper.style.top = '0';
-      wrapper.style.width = '800px';
-      wrapper.style.zIndex = '-9999';
-      wrapper.style.opacity = '0'; // Hide visually
-      wrapper.style.pointerEvents = 'none';
-      wrapper.appendChild(clone);
-      
-      document.body.appendChild(wrapper);
-      
-      // Force styles on clone
-      clone.style.display = 'block';
-      clone.style.width = '800px';
-      clone.style.height = 'auto';
-      clone.style.transform = 'none';
-      clone.style.visibility = 'visible';
-      
-      // Reset transform on the inner template div to ensure natural size
-      // The template component usually has a transform scale that might be wrong if captured in a different context
-      const innerDiv = clone.firstChild;
-      if (innerDiv && innerDiv.style) {
-          innerDiv.style.transform = 'none';
-          innerDiv.style.width = '800px';
-      }
-      
-      // Wait for layout to settle
-      await new Promise(resolve => setTimeout(resolve, 500));
-
-      try {
-        const canvas = await html2canvas(clone, {
-          scale: 2,
-          useCORS: true,
-          windowWidth: 800,
-          width: 800, // Force width
-          backgroundColor: '#ffffff', // Force white background
-          onclone: (clonedDoc) => {
-            const clonedElement = clonedDoc.body.getElementsByTagName('div')[0]; // Assuming wrapper is first
-             if(clonedElement) {
-                 clonedElement.style.backgroundColor = '#ffffff';
-             }
-          }
-        });
-        document.body.removeChild(wrapper);
-        return canvas;
-      } catch (error) {
-        document.body.removeChild(wrapper);
-        throw error;
-      }
-    }
-  };
-
-  const handleDownload = async () => {
+  const executeDownload = async () => {
     try {
-      const canvas = await captureContent();
-      if (!canvas) return;
-
-      const imgData = canvas.toDataURL("image/jpeg", 1.0);
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
-
-      if (Number.isNaN(pdfWidth) || Number.isNaN(pdfHeight) || !Number.isFinite(pdfHeight)) {
-          console.error("Invalid PDF dimensions:", { pdfWidth, pdfHeight, canvasWidth: canvas.width, canvasHeight: canvas.height });
-          toast.error("Error generating PDF. Please try again.");
-          return;
+      if (!resumePreviewRef.current) {
+        toast.error("Resume preview not found");
+        return;
       }
 
-      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
-      pdf.save(`${resume.title || "resume"}.pdf`);
-    } catch (error) {
-      console.error("Download error:", error);
-      toast.error("Failed to download PDF");
+      const blob = await generatePDFBlob(resumePreviewRef.current);
+
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${resume.title || "resume"}.pdf`;
+      link.click();
+      URL.revokeObjectURL(url);
+      
+      setShowDownloadPopup(false);
+      toast.success("Download started!");
+
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to generate PDF");
     }
   };
+
+  const handleDownload = () => {
+      setShowDownloadPopup(true);
+  };
+
 
   const handleShare = async () => {
     const toastId = toast.loading("Generating PDF for sharing...");
 
     try {
-      const canvas = await captureContent();
-      if (!canvas) throw new Error("Failed to capture resume");
+      const element = resumePreviewRef.current;
+      if (!element) throw new Error("Resume preview not found");
 
-      const imgData = canvas.toDataURL("image/jpeg", 1.0);
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+      let elementToCapture = element;
+      let wrapper = null;
 
-      if (Number.isNaN(pdfWidth) || Number.isNaN(pdfHeight) || !Number.isFinite(pdfHeight)) {
-          throw new Error("Invalid PDF dimensions");
+      if (element.offsetWidth === 0 || element.offsetHeight === 0) {
+          // Clone and show off-screen but within viewport to avoid clipping
+          const clone = element.cloneNode(true);
+          wrapper = document.createElement('div');
+          wrapper.style.position = 'fixed';
+          wrapper.style.left = '0';
+          wrapper.style.top = '0';
+          wrapper.style.width = '800px'; // Force width
+          wrapper.style.zIndex = '-9999'; // Behind everything
+          wrapper.style.visibility = 'visible';
+          wrapper.style.backgroundColor = '#ffffff'; // Ensure background
+          wrapper.appendChild(clone);
+          document.body.appendChild(wrapper);
+          
+          clone.style.display = 'block';
+          clone.style.width = '800px';
+          clone.style.height = 'auto';
+          clone.style.transform = 'none';
+          
+          const innerDiv = clone.firstChild;
+          if (innerDiv && innerDiv.style) {
+              innerDiv.style.transform = 'none';
+              innerDiv.style.width = '800px';
+          }
+          
+          await new Promise(resolve => setTimeout(resolve, 500));
+          elementToCapture = clone;
       }
 
-      pdf.addImage(imgData, "JPEG", 0, 0, pdfWidth, pdfHeight);
-      const blob = pdf.output("blob");
+      const blob = await generatePDFBlob(elementToCapture);
+      
+      if (wrapper) {
+          document.body.removeChild(wrapper);
+      }
+
       setPdfBlob(blob);
       setIsEmailPopupOpen(true);
       toast.success("Ready to share!", { id: toastId });
     } catch (error) {
       console.error("Error generating PDF:", error);
-      toast.error("Failed to generate PDF", { id: toastId });
+      toast.error("Failed to generate PDF: " + (error.message || "Unknown error"), { id: toastId });
     }
   };
 
@@ -567,6 +532,33 @@ const EditResume = () => {
         pdfBlob={pdfBlob}
         resumeTitle={resume.title}
       />
+
+      {/* Download Confirmation Popup */}
+      {showDownloadPopup && (
+        <div className="fixed inset-0 z-[60] bg-black/50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl shadow-2xl w-full max-w-md p-6 animate-in fade-in zoom-in duration-200">
+            <h3 className="text-xl font-bold text-slate-800 mb-2">Download Resume</h3>
+            <p className="text-slate-600 mb-6">
+              Are you sure you want to download your resume as a PDF?
+            </p>
+            <div className="flex justify-end gap-3">
+              <button
+                onClick={() => setShowDownloadPopup(false)}
+                className="px-4 py-2 text-slate-600 hover:bg-slate-100 rounded-lg font-medium transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={executeDownload}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors flex items-center gap-2"
+              >
+                <Download size={18} />
+                Download PDF
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

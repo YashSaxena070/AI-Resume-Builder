@@ -22,7 +22,7 @@ import java.util.Objects;
 import static com.yash.AI_Resume.utils.AppConstants.*;
 
 @RequiredArgsConstructor
-@RequestMapping("/api/email")
+@RequestMapping(EMAIL)
 @RestController
 @Slf4j
 public class EmailController {
@@ -31,15 +31,17 @@ public class EmailController {
 
     @PostMapping(value = SEND_RESUME, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Map<String,Object>> sendResumeByEmail(
-            @RequestPart("recepientEmail") String recepientEmail,
+            @RequestPart("recipientEmail") String recipientEmail,
             @RequestPart("subject") String subject,
             @RequestPart("message") String message,
             @RequestPart("pdfFile") MultipartFile pdfFile,
             Authentication authentication
     ) throws IOException, MessagingException {
+        log.info("🔥 sendResumeByEmail API HIT");
+
         //1.Validate the input
         Map<String, Object> response = new HashMap<>();
-        if(Objects.isNull(recepientEmail) || Objects.isNull(pdfFile)){
+        if(Objects.isNull(recipientEmail) || Objects.isNull(pdfFile)){
             response.put("success", false);
             response.put("message", "Missing required fields");
             return ResponseEntity.badRequest().body(response);
@@ -55,12 +57,12 @@ public class EmailController {
         String emailBody = Objects.nonNull(message) ? message : "Please find my resume attached. \n \n Best Regards";
 
         //4. Call the Service method
-        emailService.sendEmailWithAttachment(recepientEmail, emailSubject, emailBody, pdfBytes, filename);
+        emailService.sendEmailWithAttachment(recipientEmail, emailSubject, emailBody, pdfBytes, filename);
 
 
         //5. return response
         response.put("success", true);
-        response.put("message", "Resume send successfully to "+recepientEmail);
+        response.put("message", "Resume send successfully to "+recipientEmail);
         return ResponseEntity.ok(response);
 
     }

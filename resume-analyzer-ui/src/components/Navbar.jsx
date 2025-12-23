@@ -80,22 +80,12 @@ const Navbar = ({ isScrolled }) => {
           </Link>
 
           {/* Links - Desktop */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-            <a href="/#hero" className="hover:text-blue-400 transition-colors">
-              Home
-            </a>
-            <Link to="/dashboard" className="hover:text-blue-400 transition-colors">
-              Resumes
-            </Link>
-            <Link to="/templates" className="hover:text-blue-400 transition-colors">
-              Templates
-            </Link>
-            <Link to="/about" className="hover:text-blue-400 transition-colors">
-              About
-            </Link>
-            <Link to="/pricing" className="hover:text-blue-400 transition-colors">
-              Pricing
-            </Link>
+          <div className="hidden md:flex items-center gap-8 text-sm font-medium">
+            <NavLink href="/#hero">Home</NavLink>
+            <NavLink to="/dashboard">Resumes</NavLink>
+            <NavLink to="/templates">Templates</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/pricing">Pricing</NavLink>
           </div>
 
           {/* Auth buttons / Profile */}
@@ -343,6 +333,31 @@ const Navbar = ({ isScrolled }) => {
         </div>
       )}
     </>
+  );
+};
+
+const NavLink = ({ to, href, children }) => {
+  const content = (
+    <>
+      {children}
+      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full" />
+    </>
+  );
+
+  const className = "relative group text-slate-300 hover:text-white transition-colors cursor-pointer";
+
+  if (href) {
+    return (
+      <a href={href} className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={to} className={className}>
+      {content}
+    </Link>
   );
 };
 

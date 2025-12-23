@@ -3,12 +3,14 @@ import { useSelector } from 'react-redux';
 import { selectIsAuthenticated } from './redux/userSlice';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
+import OAuthCallback from './pages/Auth/OAuthCallback';
 import Dashboard from './pages/Home/Dashboard';
 import Home from './pages/Home/Home';
 import Templates from './pages/Home/Templates';
 import Pricing from './pages/Home/Pricing';
 import About from './pages/Home/About';
 import EditResume from './pages/ResumeUpdate/EditResume';
+import ResumeAnalyzer from './pages/ResumeAnalyzer';
 import Layout from './components/Layout';
 import './App.css';
 
@@ -59,6 +61,14 @@ function App() {
           </PublicRoute>
         }
       />
+      <Route
+        path="/oauth/callback"
+        element={
+          <PublicRoute>
+            <OAuthCallback />
+          </PublicRoute>
+        }
+      />
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route
@@ -66,6 +76,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/analyze"
+          element={
+            <ProtectedRoute>
+              <ResumeAnalyzer />
             </ProtectedRoute>
           }
         />

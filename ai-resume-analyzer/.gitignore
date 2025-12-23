@@ -35,7 +35,7 @@ build/
 ### Sensitive Configuration Files ###
 src/main/resources/application.yaml
 *.env
-.env
+src/main/resources/application-env.txt
 .env.local
 .env.*.local
 output.txt

@@ -34,25 +34,13 @@ const Title = ({ text, color }) => {
 const TemplateTwo = ({ resumeData, colorPalette, containerWidth }) => {
   const themeColors = colorPalette?.length > 0 ? colorPalette : DEFAULT_THEME;
   const resumeRef = useRef(null);
-  const [baseWidth, setBaseWidth] = useState(800);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const actualBaseWidth = resumeRef.current.offsetWidth;
-    setBaseWidth(actualBaseWidth || 800);
-    setScale(containerWidth / (actualBaseWidth || 800));
-  }, [containerWidth]);
 
   return (
-    <div
+     <div
       ref={resumeRef}
       className="bg-white min-h-[1000px]"
-        transform: containerWidth > 0 ? `scale(${scale})` : "none",
-        transformOrigin: "top left",
-        width: containerWidth > 0 ? `${baseWidth}px` : "auto",
-        height: "auto",
-      }}
-    >
+     >
+
       <div className="grid grid-cols-12 min-h-full">
         {/* Left Sidebar */}
         <div className="col-span-4 p-8 flex flex-col gap-6" style={{ backgroundColor: themeColors[0] }}>

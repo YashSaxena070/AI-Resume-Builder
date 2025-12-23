@@ -4,7 +4,7 @@ import com.yash.AI_Resume.document.Resume;
 import com.yash.AI_Resume.dto.AuthResponse;
 import com.yash.AI_Resume.dto.CreateResumeRequest;
 import com.yash.AI_Resume.repository.ResumeRepository;
-import jakarta.validation.Valid;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,30 +23,30 @@ public class ResumeService {
     private final Tika tika = new Tika();
     private final AuthService authService;
 
-    public String extractText(MultipartFile file){
-        try{
+    public String extractText(MultipartFile file) {
+        try {
             String text = tika.parseToString(file.getInputStream());
             return text.trim();
-        } catch (Exception e){
+        } catch (Exception e) {
             return "Error extracting text" + e.getMessage();
         }
     }
 
     public Resume createResume(CreateResumeRequest request, Object principal) {
-        //1. Create Resume Object
+        // 1. Create Resume Object
         Resume newResume = new Resume();
 
-        //2. Get the current profile
+        // 2. Get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //3. update the resume object
+        // 3. update the resume object
         newResume.setUserId(response.getId());
         newResume.setTitle(request.getTitle());
 
-        //4. Set default data for resume
+        // 4. Set default data for resume
         setDefaultResumeData(newResume);
 
-        //5. save the resume data
+        // 5. save the resume data
         return resumeRepository.save(newResume);
 
     }
@@ -64,37 +64,37 @@ public class ResumeService {
     }
 
     public List<Resume> getUserResumes(Object principal) {
-        //Step 1: Get the current profile
+        // Step 1: Get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //Step 2: Call the repository finder method
+        // Step 2: Call the repository finder method
         List<Resume> resumes = resumeRepository.findByUserIdOrderByUpdatedAtDesc(response.getId());
 
-        //Step 3: return result
+        // Step 3: return result
         return resumes;
-      }
+    }
 
     public Resume getResumeById(String resumeId, Object principal) {
-        //Step 1: Get the current profile
+        // Step 1: Get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //Step 2: Call the repo finder method
+        // Step 2: Call the repo finder method
         Resume existingResume = resumeRepository.findByUserIdAndId(response.getId(), resumeId)
                 .orElseThrow(() -> new RuntimeException("Resume not found"));
 
-        //Step 3: return result
+        // Step 3: return result
         return existingResume;
     }
 
     public Resume updateResume(String resumeId, Resume updatedData, Object principal) {
-        //1.Get the current profile
+        // 1.Get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //2. Call the repo finder method
+        // 2. Call the repo finder method
         Resume existingResume = resumeRepository.findByUserIdAndId(response.getId(), resumeId)
                 .orElseThrow(() -> new RuntimeException("Resume not found"));
 
-        //3. update the new data
+        // 3. update the new data
 
         existingResume.setTitle(updatedData.getTitle());
         existingResume.setThumbnailLink(updatedData.getThumbnailLink());
@@ -109,19 +109,19 @@ public class ResumeService {
         existingResume.setLanguages(updatedData.getLanguages());
         existingResume.setInterests(updatedData.getInterests());
 
-        //Step 4: update the details into database
+        // Step 4: update the details into database
         resumeRepository.save(existingResume);
 
-        //Step 5: return result
+        // Step 5: return result
         return existingResume;
 
     }
 
     public void deleteResume(String resumeId, Object principal) {
-        //Step 1: get the current profile
+        // Step 1: get the current profile
         AuthResponse response = authService.getProfile(principal);
 
-        //Step 2: call the repo finder method
+        // Step 2: call the repo finder method
         Resume existingResume = resumeRepository.findByUserIdAndId(response.getId(), resumeId)
                 .orElseThrow(() -> new RuntimeException("Resume not found"));
         resumeRepository.delete(existingResume);

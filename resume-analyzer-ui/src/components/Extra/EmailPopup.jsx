@@ -21,17 +21,14 @@ const EmailPopup = ({ isOpen, onClose, pdfBlob, resumeTitle }) => {
 
     setIsSending(true);
     const formData = new FormData();
-    formData.append('recepientEmail', email);
+    formData.append('recipientEmail', email); // Fixed typo
     formData.append('subject', subject);
     formData.append('message', message);
     formData.append('pdfFile', pdfBlob, `${resumeTitle || 'resume'}.pdf`);
 
     try {
-      await axiosInstance.post(API_PATHS.EMAIL.SEND_RESUME, formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      // Let axios set the Content-Type with boundary automatically
+      await axiosInstance.post(API_PATHS.EMAIL.SEND_RESUME, formData);
       toast.success('Resume sent successfully!');
       onClose();
     } catch (error) {

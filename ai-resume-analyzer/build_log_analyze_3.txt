@@ -1,0 +1,170 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< com.yash:ai-resume-analyzer >---------------------
+[INFO] Building ai-resume-analyzer 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.0:clean (default-clean) @ ai-resume-analyzer ---
+[INFO] Deleting C:\Users\Yash\Desktop\AI resume analyzer\ai-resume-analyzer\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ ai-resume-analyzer ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ ai-resume-analyzer ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 37 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[12,2] cannot find symbol
+  symbol: class RequiredArgsConstructor
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[13,2] cannot find symbol
+  symbol: class Slf4j
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[16,19] cannot find symbol
+  symbol:   class ResumeService
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[17,19] cannot find symbol
+  symbol:   class FileUploadService
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[18,19] cannot find symbol
+  symbol:   class AIService
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[19,19] cannot find symbol
+  symbol:   class pdfService
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,63] cannot find symbol
+  symbol:   class CreateResumeRequest
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[23,13] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[32,44] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[32,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[41,69] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[41,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[51,26] cannot find symbol
+  symbol:   class Resume
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[52,13] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[50,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[64,13] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[61,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[76,13] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[75,12] cannot find symbol
+  symbol:   class ResponseEntity
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[84,72] cannot find symbol
+  symbol:   class Authentication
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[84,12] cannot find symbol
+  symbol:   class AtsResult
+  location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,44] cannot find symbol
+  symbol:   class Valid
+  location: class ResumeController
+[INFO] 23 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.177 s
+[INFO] Finished at: 2025-12-22T14:51:00+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project ai-resume-analyzer: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[12,2] cannot find symbol
+[ERROR]   symbol: class RequiredArgsConstructor
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[13,2] cannot find symbol
+[ERROR]   symbol: class Slf4j
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[16,19] cannot find symbol
+[ERROR]   symbol:   class ResumeService
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[17,19] cannot find symbol
+[ERROR]   symbol:   class FileUploadService
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[18,19] cannot find symbol
+[ERROR]   symbol:   class AIService
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[19,19] cannot find symbol
+[ERROR]   symbol:   class pdfService
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,63] cannot find symbol
+[ERROR]   symbol:   class CreateResumeRequest
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[23,13] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[32,44] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[32,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[41,69] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[41,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[51,26] cannot find symbol
+[ERROR]   symbol:   class Resume
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[52,13] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[50,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[64,13] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[61,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[76,13] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[75,12] cannot find symbol
+[ERROR]   symbol:   class ResponseEntity
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[84,72] cannot find symbol
+[ERROR]   symbol:   class Authentication
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[84,12] cannot find symbol
+[ERROR]   symbol:   class AtsResult
+[ERROR]   location: class ResumeController
+[ERROR] /C:/Users/Yash/Desktop/AI resume analyzer/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java:[22,44] cannot find symbol
+[ERROR]   symbol:   class Valid
+[ERROR]   location: class ResumeController
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -50,6 +50,17 @@ const Home = () => {
       `}</style>
 
       <Hero />
+      
+      {/* Floating Analyze Button */}
+      <div className="fixed bottom-8 right-8 z-50">
+        <a 
+          href="/analyze" 
+          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full shadow-lg hover:shadow-blue-500/50 transition-all transform hover:scale-105"
+        >
+          <span>✨ Analyze Resume</span>
+        </a>
+      </div>
+
       <Showcase />
       <Testimonials />
       <Marquee items={movingTestimonials} />

@@ -29,25 +29,11 @@ const formatYearMonth = (dateString) => {
 const TemplateSix = ({ resumeData, colorPalette, containerWidth }) => {
   const themeColors = colorPalette?.length > 0 ? colorPalette : DEFAULT_THEME;
   const resumeRef = useRef(null);
-  const [baseWidth, setBaseWidth] = useState(800);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const actualBaseWidth = resumeRef.current.offsetWidth;
-    setBaseWidth(actualBaseWidth || 800);
-    setScale(containerWidth / (actualBaseWidth || 800));
-  }, [containerWidth]);
 
   return (
     <div
       ref={resumeRef}
       className="bg-white min-h-[1000px] relative"
-      style={{
-        transform: containerWidth > 0 ? `scale(${scale})` : "none",
-        transformOrigin: "top left",
-        width: containerWidth > 0 ? `${baseWidth}px` : "auto",
-        height: "auto",
-      }}
     >
       {/* Dark Header */}
       <div

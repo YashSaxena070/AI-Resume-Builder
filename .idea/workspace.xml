@@ -5,21 +5,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d8a228fa-476b-43f1-a3d3-7423ed61f8b7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/OAuth2SuccessHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/document/type/AuthProviderType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/OAuth2LoginService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/DotEnvConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/DotEnvConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/AiResumeAnalyzerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/AiResumeAnalyzerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/DotEnvConfig.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/EmailController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/PaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/PaymentService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/postcss.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/controller/ResumeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/document/Resume.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/document/Resume.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/document/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/document/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/repository/UserRespository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/repository/UserRespository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/security/JwtAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/AIService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/AIService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/AuthService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/AuthService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/FileUploadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/FileUploadService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/ResumeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/ResumeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/TemplatesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/service/TemplatesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/utils/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/utils/AppConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/utils/JwtUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/ai-resume-analyzer/src/main/java/com/yash/AI_Resume/utils/JwtUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ai-resume-analyzer/src/main/resources/application.yaml.example" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/main.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/tailwind.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Extra/EmailPopop.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Extra/EmailPopop.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Extra/EmailPopup.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Extra/EmailPopup.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Footer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateEight.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateEight.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateFive.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateFive.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateFour.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateFour.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateOne.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateOne.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateSeven.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateSeven.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateSix.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateSix.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateThree.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateThree.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateTwo.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/components/ResumeTemplates/TemplateTwo.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/Auth/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/Auth/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/Home/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/Home/Home.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/ResumeUpdate/EditResume.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/ResumeUpdate/EditResume.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/ResumeUpdate/ThemeSelector.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/pages/ResumeUpdate/ThemeSelector.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/redux/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/redux/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/apiPaths.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/apiPaths.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/axiosInstance.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/axiosInstance.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/pdfGenerator.js" beforeDir="false" afterPath="$PROJECT_DIR$/resume-analyzer-ui/src/utils/pdfGenerator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,8 +108,16 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Yash\Desktop\AI resume analyzer\ai-resume-analyzer\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="AiResumeAnalyzerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <envs>
+        <env name="JWT_SECRET" value="TaK+HaV^uvCHEFsEVfypW#7g9^k*Z8$V" />
+      </envs>
       <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
       <module name="ai-resume-analyzer" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.yash.AI_Resume.AiResumeAnalyzerApplication" />
@@ -128,7 +168,17 @@
       <workItem from="1765985099259" duration="4722000" />
       <workItem from="1766034343755" duration="51000" />
       <workItem from="1766036473042" duration="15000" />
-      <workItem from="1766044122968" duration="7036000" />
+      <workItem from="1766044122968" duration="7760000" />
+      <workItem from="1766134901484" duration="5101000" />
+      <workItem from="1766169674455" duration="8000" />
+      <workItem from="1766173794131" duration="33000" />
+      <workItem from="1766326845132" duration="248000" />
+      <workItem from="1766340318643" duration="2288000" />
+      <workItem from="1766381412888" duration="14682000" />
+      <workItem from="1766408538613" duration="707000" />
+      <workItem from="1766409264254" duration="1365000" />
+      <workItem from="1766411289251" duration="2267000" />
+      <workItem from="1766413583629" duration="941000" />
     </task>
     <servers />
   </component>

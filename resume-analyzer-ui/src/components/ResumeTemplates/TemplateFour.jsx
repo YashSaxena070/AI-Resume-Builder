@@ -31,31 +31,12 @@ const formatYearMonth = (dateString) => {
 const TemplateFour = ({ resumeData, colorPalette, containerWidth }) => {
   const themeColors = colorPalette?.length > 0 ? colorPalette : DEFAULT_THEME;
   const resumeRef = useRef(null);
-  const [baseWidth, setBaseWidth] = useState(800);
-  const [scale, setScale] = useState(1);
-
-  useEffect(() => {
-    const actualBaseWidth = resumeRef.current.offsetWidth;
-    setBaseWidth(actualBaseWidth || 800);
-    setScale(containerWidth / (actualBaseWidth || 800));
-  }, [containerWidth]);
 
   return (
     <div
       ref={resumeRef}
       className="bg-white min-h-[1000px] relative flex"
-      style={{
-        transform: containerWidth > 0 ? `scale(${scale})` : "none",
-        transformOrigin: "top left",
-        width: containerWidth > 0 ? `${baseWidth}px` : "auto",
-        height: "auto",
-      }}
     >
-      {/* Left Sidebar */}
-      <div
-        className="w-[32%] p-8 flex flex-col gap-8 text-white min-h-full"
-        style={{ backgroundColor: themeColors[4] }}
-      >
         {/* Profile Image */}
         <div className="flex justify-center mb-2">
           <div className="w-40 h-40 rounded-full border-4 border-white/20 overflow-hidden bg-white/10 flex items-center justify-center">
@@ -189,9 +170,9 @@ const TemplateFour = ({ resumeData, colorPalette, containerWidth }) => {
               ))}
             </div>
           </div>
-        )}
-      </div>
-
+        
+      )}
+  
       {/* Main Content */}
       <div className="flex-1 p-10 flex flex-col gap-8">
         {/* Header */}

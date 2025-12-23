@@ -1,0 +1,71 @@
+server:
+  port: 8080
+
+#Application info
+app:
+  base:
+    url: http://localhost:8080
+
+#cloudinary info
+cloudinary:
+  cloud-name: dyrg31pym
+  api-key: 423542896616712
+  api-secret: ZWSisYEHwsqHYKfImdPQqeI-hvo
+
+#Jwt Configuration
+jwt:
+  secret: TaK+HaV^uvCHEFsEVfypW#7g9^k*Z8$V
+  expiration: 604800000
+
+#Razorpay Configuration
+razorpay:
+  key:
+    id: rzp_test_Rsa5CdGXTTiD3R
+    secret: XrZvZ33wghg3AZ7njDsVoF2l
+
+
+spring:
+  application:
+    name: ai-resume-analyzer
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  #Email Configuration
+  mail:
+    host: smtp-relay.brevo.com
+    port: 587
+    username: 9df840001@smtp-brevo.com
+    password: bskT0EJTluYa7dX
+    properties:
+      mail:
+        smtp:
+          auth: true
+          from: yashsaxena7668@gmail.com
+        starttls:
+          enable: true
+          required: true
+    protocol: smtp
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 922482114230-ffv5542ed2gias3b12km7aishe3dh963.apps.googleusercontent.com
+            client-secret: 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
+          github:
+            client-id: Ov23liKnXTW9BmvrVLeP
+            client-secret: 6aedc33aa08828577afabaab854de3a018611753
+
+  data:
+    mongodb:
+      uri: mongodb+srv://yash_saxena:Yash%40%2376686@cluster0.9bmzjjg.mongodb.net/ai-resume-analyzer?appName=Cluster0
+  ai:
+    groq:
+      api-key: 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
+
+
+
+
+
