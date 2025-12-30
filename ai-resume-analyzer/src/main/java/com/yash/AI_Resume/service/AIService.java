@@ -33,14 +33,14 @@ public class AIService {
             throw new RuntimeException("Resume text is empty or invalid");
         }
 
-        String url = "https://api.groq.com/openai/v1/chat/completions";
+        String url = "https://api.groq.com/v1/chat/completions";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         headers.set("Authorization", "Bearer " + API_KEY);
 
         Map<String, Object> body = Map.of(
-                "model", "llama-3.1-8b-instant",
+                "model", "llama3-8b-8192",
                 "messages", List.of(
                         Map.of("role", "system",
                                 "content", "You are an ATS resume analyzer. Respond ONLY with valid JSON."),
