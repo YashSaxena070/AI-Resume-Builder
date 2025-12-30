@@ -33,7 +33,7 @@ public class AIService {
             throw new RuntimeException("Resume text is empty or invalid");
         }
 
-        String url = "https://api.groq.com/v1/chat/completions";
+        String url = "https://api.groq.com/openai/v1/chat/completions";
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
