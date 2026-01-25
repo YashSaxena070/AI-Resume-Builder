@@ -40,7 +40,7 @@ public class AIService {
         headers.set("Authorization", "Bearer " + API_KEY);
 
         Map<String, Object> body = Map.of(
-                "model", "llama3-8b-8192",
+                "model", "llama-3.3-70b-versatile",
                 "messages", List.of(
                         Map.of("role", "system",
                                 "content", "You are an ATS resume analyzer. Respond ONLY with valid JSON."),
